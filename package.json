@@ -11,8 +11,21 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "jssm": "^5.122.2",
     "mongodb": "^7.2.0",
     "mongoose": "^9.6.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharmilakelam123/students-api.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/sharmilakelam123/students-api/issues"
+  },
+  "homepage": "https://github.com/sharmilakelam123/students-api#readme"
 }

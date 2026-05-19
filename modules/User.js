@@ -1,19 +1,22 @@
 const mongoose = require("mongoose");
-const { type } = require("node:os");
+
 
 const userschema = new mongoose.Schema({
     name:{
         type:String,
        
-    },
-    id:{
-        type:Number,
+
      
     }, 
-    branch:{
+    email:{
         type:String,
       
+    },
+    password:{
+        type:String,
+
     }
+
     
 })
 
