@@ -1,18 +1,20 @@
-import dns from "dns";
-dns.setServers(["8.8.8.8", "1.1.1.1"]);
-
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+
 import userRoutes from "./routes/userRoutes.js";
+import User from "./models/userModel.js";
+
 dotenv.config();
 
 const app = express();
 
 app.use(express.json());
 
+// routes
 app.use("/api/users", userRoutes);
 
+// MongoDB connect
 mongoose.connect(process.env.MONGO_URL)
 .then(() => {
     console.log("MongoDB Connected");
@@ -21,8 +23,7 @@ mongoose.connect(process.env.MONGO_URL)
     console.log("Mongo Error:", err);
 });
 
-import User from "./models/userModel.js";
-
+// test route
 app.get("/", async (req, res) => {
     try {
         const users = await User.find();
