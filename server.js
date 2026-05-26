@@ -4,7 +4,7 @@ dns.setServers(["8.8.8.8", "1.1.1.1"]);
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import userRoutes from "./routes/userRoutes.js";
+import userRoutes from "./routes/userroutes.js";
 
 dotenv.config();
 
