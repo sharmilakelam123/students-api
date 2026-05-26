@@ -6,12 +6,12 @@ const userSchema = new mongoose.Schema({
     required: true
   },
 
-  email: {
+  size: {
     type: String,
     required: true
   },
 
-  age: {
+  cost: {
     type: Number
   }
 
