@@ -1,34 +1,33 @@
-const express = require("express");
-require("dotenv").config();
-const dns = require("dns");
-
+import dns from "dns";
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
- 
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import userRoutes from "./routes/userRoutes.js";
 
-const connectDB = require("./config/db");
-
-
-
+dotenv.config();
 
 const app = express();
 
 app.use(express.json());
 
-// DB connect
-connectDB();
+app.use("/api/users", userRoutes);
 
-// routes
-const userRoutes = require("./routes/studentsRoutes");
-app.use("/api", userRoutes);
-
-// test route
-app.get("/", (req, res) => {
-    res.send("API Working");
+mongoose.connect(process.env.MONGO_URL)
+.then(() => {
+    console.log("MongoDB Connected");
+})
+.catch((err) => {
+    console.log("Mongo Error:", err);
 });
 
-const PORT = process.env.PORT || 4000;
+app.get("/", (req, res) => {
+    res.send("API Running");
+});
+
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-    console.log("server started on port", PORT);
+    console.log(`Server running on port ${PORT}`);
 });
